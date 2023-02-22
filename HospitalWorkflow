@@ -1,0 +1,30 @@
+# We define a class called Patient. 
+class Patient:
+# In the init method, we initialize an empty dictionary self.patients to store patient information. 
+    def __init__(self):
+        self.patients = {}
+# This method adds a new patient to the self.patients with given attributes. 
+    def add_patient(self, name, age, dob, sex, weight, height):
+        self.patients[name] = {'age': age, 'dob': dob, 'sex': sex, 'weight': weight, 'height': height}
+# This method modifies the attributes of an existing patient in the self.patients dictionary.
+    def modify_patient(self, name, attributes_to_modify):
+        if name in self.patients:
+            for attr, value in attributes_to_modify.items():
+                if attr in self.patients[name]:
+                    self.patients[name][attr] = value
+                else:
+                    print(f"{attr} is not a valid attribute for {name}")
+        else:
+            print(f"Patient {name} does not exist.")
+# This object is an instance of the Patient class.
+patient_manager = Patient()
+
+# Add patients
+patient_manager.add_patient('Kavin', 35, '06-03-1986', 'M', 160, 70)
+patient_manager.add_patient('Kumar', 42, '11-23-1979', 'F', 130, 65)
+
+# Modify patient attributes
+patient_manager.modify_patient('Kumar', {'age': 36, 'weight': 165})
+
+# Print updated patient information
+print(patient_manager.patients)

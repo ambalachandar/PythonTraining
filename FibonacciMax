@@ -1,0 +1,13 @@
+def fibonacci_series(max_num):
+    first_num, sec_num = 0, 1
+    result = []
+
+    while first_num <= max_num:
+        result.append(first_num)
+        first_num, sec_num = sec_num, first_num + sec_num
+
+    return result
+
+max_num = int(input("Enter the maximum number: "))
+fibonacci_result = fibonacci_series(max_num)
+print(fibonacci_result)
